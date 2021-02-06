@@ -2,14 +2,30 @@
   "name": "test-server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon -r dotenv/config src/index.js --exec babel-node"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@tensorflow/tfjs": "^2.6.0",
+    "@tensorflow/tfjs-node": "^2.6.0",
+    "@tensorflow/tfjs-node-gpu": "^2.6.0",
+    "canvas": "^2.6.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "face-api.js": "^0.22.2",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.11.15",
+    "node-fetch": "^2.6.1",
     "socket.io": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/preset-env": "^7.12.13"
   }
 }

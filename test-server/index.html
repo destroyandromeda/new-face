@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru-Ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="text-align: center">
+<img id="image" style="width: 80%; height: 80%;" src="" alt="">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.min.js"></script>
+<script type="text/javascript">
+    const socket = io.connect('http://localhost:3433')
+    socket.on('image', (data) => {
+        const imageEl = document.getElementById('image')
+        imageEl.src = `data:image/jpeg;base64,${data}`
+    })
+    socket.emit('test','sada')
+
+</script>
+</body>
+</html>
