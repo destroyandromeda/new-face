@@ -36,11 +36,13 @@ export default class WebCamStream extends WebCam {
     }
 
     openCommonStream() {
+        this.camOn()
         if (this.io)
             this.stream = setInterval(() => this.commonStream(), this.ms)
     }
 
     openFaceDetectionStream() {
+        this.camOn()
         if (this.io)
             this.prepareWebCamDetection()
                 .then(() => this.stream = setInterval(() => this.startDetectionOnWebCam(), this.ms))
@@ -48,12 +50,16 @@ export default class WebCamStream extends WebCam {
     }
 
     openFaceRecognitionStream() {
+        this.camOn()
         if (this.io)
             this.prepareWebCamDetection()
                 .then(() => this.stream = setInterval(() => this.startDetectionOnWebCam(), this.ms))
     }
 
     close() {
-        clearInterval(this.stream)
+        this.camOff()
+        if(this.stream){
+            clearInterval(this.stream)
+        }
     }
 }

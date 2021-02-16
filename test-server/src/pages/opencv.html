@@ -9,15 +9,7 @@
 </head>
 <body style="text-align: center">
 <img id="image" style="width: 80%; height: 80%;" src="" alt="">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.0/socket.io.min.js"></script>
-<script type="text/javascript">
-    const socket = io.connect('http://localhost:3433')
-    socket.on('image', (data) => {
-        const imageEl = document.getElementById('image')
-        imageEl.src = `data:image/jpeg;base64,${data}`
-    })
-    socket.emit('test','sada')
-
-</script>
+<script src="static/socket.io.js"></script>
+<script src="static/pages/opencv.js"></script>
 </body>
 </html>

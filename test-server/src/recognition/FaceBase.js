@@ -14,11 +14,11 @@ export default class FaceBase {
 
         this.faceApi.env.monkeyPatch({fetch, Canvas: this.canvas.Canvas, Image: this.canvas.Image})
         return Promise.all([
-            this.faceApi.nets.tinyFaceDetector.loadFromDisk('./src/recognition/weights'),
-            this.faceApi.nets.faceRecognitionNet.loadFromDisk('./src/recognition/weights'),
-            this.faceApi.nets.faceLandmark68Net.loadFromDisk('./src/recognition/weights'),
-            this.faceApi.nets.faceLandmark68TinyNet.loadFromDisk('./src/recognition/weights'),
-            this.faceApi.nets.ssdMobilenetv1.loadFromDisk('./src/recognition/weights')
+            this.faceApi.nets.tinyFaceDetector.loadFromDisk('./public/weights'),
+            this.faceApi.nets.faceRecognitionNet.loadFromDisk('./public/weights'),
+            this.faceApi.nets.faceLandmark68Net.loadFromDisk('./public/weights'),
+            this.faceApi.nets.faceLandmark68TinyNet.loadFromDisk('./public/weights'),
+            this.faceApi.nets.ssdMobilenetv1.loadFromDisk('./public/weights')
         ])
     }
 

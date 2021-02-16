@@ -10,12 +10,26 @@ const start = async () => {
     const server = app.listen(process.env.APP_PORT)
     const io = SocketIO(server)
 
+    let broadcaster = null
+
+    io.on("error", e => console.log(e));
     io.on('connection', async (socket) => {
+
         console.log('Client connected...')
-        let stream = new WebCamStream(io)
-        stream.openFaceDetectionStream()
+
+        socket.on("opencv", () => {
+            let stream = new WebCamStream(io)
+            console.log(stream)
+
+            stream.openFaceDetectionStream()
+        })
+
+        socket.on("broadcaster", async () => {
+            socket.emit("broadcaster");
+        });
+
+
         socket.on('disconnect', function () {
-            stream.close()
             console.log('Client disconnect...')
         })
     })
